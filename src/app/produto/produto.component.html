@@ -1,0 +1,56 @@
+<div>
+  <!-- Formulário para criar um novo produto -->
+  <h2>Criar Novo Produto</h2>
+  <form (submit)="criarNovoProduto()">
+    <label>
+      Nome:
+      <input type="text" [(ngModel)]="novoProduto.nome" name="nome" required>
+    </label>
+    <label>
+      Descrição:
+      <input type="text" [(ngModel)]="novoProduto.descricao" name="descricao" required>
+    </label>
+    <label>
+      Quantidade em Estoque:
+      <input type="number" [(ngModel)]="novoProduto.quantidadeEstoque" name="quantidade_estoque" required>
+    </label>
+    <label>
+      Preço:
+      <input type="number" [(ngModel)]="novoProduto.preco" name="preco" required>
+    </label>
+    <label>
+    <label>
+      Categoria:
+        <input type="number" [(ngModel)]="novoProduto.categoria.id" name="categoria_id" required>
+    </label>
+      Fabricante:
+      <input type="number" [(ngModel)]="novoProduto.fabricante.id" name="fabricante_id" required>
+    </label>
+
+    <button type="submit">Criar Produto</button>
+  </form>
+
+  <hr>
+
+  <!-- Lista de produtos -->
+  <h2>Lista de Produtos</h2>
+  <ul>
+    <li *ngFor="let produto of produtos">
+      {{ produto.nome }}
+      <button (click)="detalharProduto(produto.id)">Detalhar</button>
+      <button (click)="excluirProduto(produto.id)">Excluir</button>
+    </li>
+  </ul>
+
+  <!-- Detalhes do produto selecionado -->
+  <div *ngIf="produtoDetalhado">
+    <h2>Detalhes do Produto</h2>
+    <p>ID: {{ produtoDetalhado.id }}</p>
+    <p>Nome: {{ produtoDetalhado.nome }}</p>
+    <p>Descrição: {{ produtoDetalhado.descricao }}</p>
+    <p>Quantidade em Estoque: {{ produtoDetalhado.quantidadeEstoque }}</p>
+    <p>Preço: {{ produtoDetalhado.preco }}</p>
+    <p>Categoria: {{ produtoDetalhado.categoria.id }}</p>
+    <p>Fabricante: {{ produtoDetalhado.fabricante.id}}</p>
+  </div>
+</div>

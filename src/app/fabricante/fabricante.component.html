@@ -1,0 +1,51 @@
+<div>
+  <!-- Formulário para criar uma nova fabricante -->
+  <button mat-button class="logoff-button "  (click)="onLogoff()">Logoff</button>
+  <h2>Criar Novo Fabricante</h2>
+  <form (submit)="criarNovaFabricante()">
+    <label>
+      Nome:
+      <input type="text" [(ngModel)]="novafabricante.nome" name="nome" required>
+    </label>
+    <!-- Adicione outros campos necessários para criar uma fabricante -->
+
+    <button type="submit">Criar Fabricante</button>
+  </form>
+
+  <hr>
+
+  <!-- Lista de fabricantes -->
+  <h2>Lista de Fabricantes</h2>
+  <ul>
+    <li *ngFor="let fabricante of fabricantes">
+      {{ fabricante.nome }}
+      <button (click)="detalharFabricante(fabricante.id)">Detalhar</button>
+      <button (click)="editarFabricante(fabricante)">Editar</button>
+      <button (click)="excluirFabricante(fabricante.id)">Excluir</button>
+      <!-- Adicione botões ou links para detalhar ou excluir fabricantes -->
+    </li>
+  </ul>
+  <!-- Formulário para editar uma fabricante -->
+<div *ngIf="fabricanteDetalhada && fabricanteEditando">
+  <h2>Editar Fabricante</h2>
+  <form (submit)="atualizarFabricante()">
+    <input type="hidden" [(ngModel)]="fabricanteDetalhada.id" name="id">
+    <label>
+      Nome:
+      <input type="text" [(ngModel)]="fabricanteDetalhada.nome" name="nome" required>
+    </label>
+    <!-- Adicione outros campos necessários para editar uma fabricante -->
+
+    <button type="submit">Salvar Alterações</button>
+    <button (click)="cancelarEdicao()">Cancelar</button>
+  </form>
+</div>
+
+  <!-- Detalhes da fabricante selecionada -->
+  <div *ngIf="fabricanteDetalhada && !fabricanteEditando">
+    <h2>Detalhes da Fabricante</h2>
+    <p>ID: {{ fabricanteDetalhada.id }}</p>
+    <p>Nome: {{ fabricanteDetalhada.nome }}</p>
+    <!-- Adicione outros detalhes específicos da fabricante -->
+  </div>
+</div>

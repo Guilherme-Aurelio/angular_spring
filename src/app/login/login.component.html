@@ -1,0 +1,25 @@
+<div class="container">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<h1 style="display: flex; align-items: center;">
+  <i class="material-icons" style="font-size: 20px; margin-right: 10px;">lock</i>
+  Login
+</h1>
+    <form>
+         <div class="form-group">
+            <label for="usuario">Login:</label>
+            <input type="text" id="usuario" class="form-control" pInputText required [(ngModel)]="login" name="login">
+       </div>
+       <div class="form-group">
+            <label for="senha">Senha:</label>
+            <div class="input-group">
+            <input type="password" id="senha" class="form-control" pInputText   required [(ngModel)]="senha" name="senha" [type]="hide ? 'text' : 'password'">
+            <div class="input-group-append">
+        </div>
+        </div>
+        </div>
+        <div class="button" style="text-align:center">
+         <button class="btn" pButton type="button" label="Entrar" (click)="onLogin()"></button>
+        </div>
+    </form>
+  </div>
+  <p>{{ mensagemErro }}</p>

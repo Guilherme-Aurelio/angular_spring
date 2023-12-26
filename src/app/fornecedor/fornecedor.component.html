@@ -1,0 +1,87 @@
+<div>
+  <!-- Formulário para criar uma nova fornecedor -->
+  <button mat-button class="logoff-button "  (click)="onLogoff()">Logoff</button>
+  <h2>Criar Novo Fornecedor</h2>
+  <form (submit)="criarNovoFornecedor()">
+    <label>
+      Nome:
+      <input type="text" [(ngModel)]="novofornecedor.nome" name="nome" required>
+    </label>
+    <label>
+      Rua:
+      <input type="text" [(ngModel)]="novofornecedor.rua" name="rua" required>
+    </label>
+    <label>
+      Numero:
+      <input type="text" [(ngModel)]="novofornecedor.numero" name="numero" required>
+    </label>
+    <label>
+      Bairro:
+      <input type="text" [(ngModel)]="novofornecedor.bairro" name="bairro" required>
+    </label>
+    <label>
+      CEP:
+      <input type="text" [(ngModel)]="novofornecedor.cep" name="cep" required>
+    </label>
+    <!-- Adicione outros campos necessários para criar uma fornecedor -->
+
+    <button type="submit">Criar Fornecedor</button>
+  </form>
+
+  <hr>
+
+  <!-- Lista de fornecedors -->
+  <h2>Lista de Fornecedores</h2>
+  <ul>
+    <li *ngFor="let fornecedor of fornecedores">
+      {{ fornecedor.nome }}
+      <button (click)="detalharFornecedor(fornecedor.id)">Detalhar</button>
+      <button (click)="editarFornecedor(fornecedor)">Editar</button>
+      <button (click)="excluirFornecedor(fornecedor.id)">Excluir</button>
+      <!-- Adicione botões ou links para detalhar ou excluir fornecedors -->
+    </li>
+  </ul>
+  <!-- Formulário para editar uma fornecedor -->
+<div *ngIf="fornecedorDetalhado && fornecedorEditando">
+  <h2>Editar Fornecedor</h2>
+  <form (submit)="atualizarFornecedor()">
+    <input type="hidden" [(ngModel)]="fornecedorDetalhado.id" name="id">
+    <label>
+      Nome:
+      <input type="text" [(ngModel)]="fornecedorDetalhado.nome" name="nome" required>
+    </label>
+    <label>
+      Rua:
+      <input type="text" [(ngModel)]="fornecedorDetalhado.rua" name="rua" required>
+    </label>
+    <label>
+      Numero:
+      <input type="text" [(ngModel)]="fornecedorDetalhado.numero" name="numero" required>
+    </label>
+    <label>
+      Bairro:
+      <input type="text" [(ngModel)]="fornecedorDetalhado.bairro" name="bairro" required>
+    </label>
+    <label>
+      CEP:
+      <input type="text" [(ngModel)]="fornecedorDetalhado.cep" name="cep" required>
+    </label>
+    <!-- Adicione outros campos necessários para editar uma fornecedor -->
+
+    <button type="submit">Salvar Alterações</button>
+    <button (click)="cancelarEdicao()">Cancelar</button>
+  </form>
+</div>
+
+  <!-- Detalhes da fornecedor selecionada -->
+  <div *ngIf="fornecedorDetalhado && !fornecedorEditando">
+    <h2>Detalhes do Fornecedor</h2>
+    <p>ID: {{ fornecedorDetalhado.id }}</p>
+    <p>Nome: {{ fornecedorDetalhado.nome }}</p>
+    <p>Rua: {{ fornecedorDetalhado.rua }}</p>
+    <p>Numero: {{ fornecedorDetalhado.numero }}</p>
+    <p>Bairro: {{ fornecedorDetalhado.bairro }}</p>
+    <p>CEP: {{ fornecedorDetalhado.cep }}</p>
+    <!-- Adicione outros detalhes específicos da fornecedor -->
+  </div>
+</div>

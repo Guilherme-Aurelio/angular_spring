@@ -1,0 +1,29 @@
+<button mat-button class="logoff-button "  (click)="onLogoff()">Logoff</button>
+<form (ngSubmit)="cadastrarVenda()">
+  <label>Data e Hora da Venda:</label>
+  <input type="datetime-local" [(ngModel)]="novaVenda.dataHora" name="dataHora" required><br>
+
+  <label>Total da Venda:</label>
+  <input type="number" step="0.01" [(ngModel)]="novaVenda.totalVenda" name="totalVenda" required><br>
+
+  <fieldset>
+    <legend>Itens da Venda:</legend>
+    <div *ngFor="let item of novaVenda.itensVendas; let i = index">
+      <label>Quantidade do Item {{ i + 1 }}:</label>
+      <input type="number" [(ngModel)]="novaVenda.itensVendas[i].quantidade" name="quantidadeItem{{ i }}" required><br>
+      <label>ID do produto {{ i + 1 }}:</label>
+      <input type="text" [(ngModel)]="novaVenda.itensVendas[i].produto" name="produtoItem{{ i }}" required><br>
+
+      <label>Preço do Item {{ i + 1 }}:</label>
+      <input type="number" [(ngModel)]="novaVenda.itensVendas[i].preco" name="precoItem{{ i }}" required><br>
+      <!-- Adicione outros campos para o item, como produto, preço, etc. -->
+      <button (click)="removerItem(i)">Remover</button>
+    </div>
+    <button type="button" (click)="adicionarItem()">Adicionar Item</button>
+  </fieldset>
+
+  <label>ID do Cliente:</label>
+  <input type="number" [(ngModel)]="novaVenda.cliente.id" name="idCliente" required><br>
+
+  <button type="submit">Cadastrar Venda</button>
+</form>

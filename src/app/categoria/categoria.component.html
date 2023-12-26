@@ -1,0 +1,51 @@
+<div>
+  <!-- Formulário para criar uma nova categoria -->
+  <button mat-button class="logoff-button "  (click)="onLogoff()">Logoff</button>
+  <h2>Criar Nova Categoria</h2>
+  <form (submit)="criarNovaCategoria()">
+    <label>
+      Nome:
+      <input type="text" [(ngModel)]="novaCategoria.nome" name="nome" required>
+    </label>
+    <!-- Adicione outros campos necessários para criar uma categoria -->
+
+    <button type="submit">Criar Categoria</button>
+  </form>
+
+  <hr>
+
+  <!-- Lista de categorias -->
+  <h2>Lista de Categorias</h2>
+  <ul>
+    <li *ngFor="let categoria of categorias">
+      {{ categoria.nome }}
+      <button (click)="detalharCategoria(categoria.id)">Detalhar</button>
+      <button (click)="editarCategoria(categoria)">Editar</button>
+      <button (click)="excluirCategoria(categoria.id)">Excluir</button>
+      <!-- Adicione botões ou links para detalhar ou excluir categorias -->
+    </li>
+  </ul>
+  <!-- Formulário para editar uma categoria -->
+<div *ngIf="CategoriaDetalhada && CategoriaEditando">
+  <h2>Editar Categoria</h2>
+  <form (submit)="atualizarCategoria()">
+    <input type="hidden" [(ngModel)]="CategoriaDetalhada.id" name="id">
+    <label>
+      Nome:
+      <input type="text" [(ngModel)]="CategoriaDetalhada.nome" name="nome" required>
+    </label>
+    <!-- Adicione outros campos necessários para editar uma categoria -->
+
+    <button type="submit">Salvar Alterações</button>
+    <button (click)="cancelarEdicao()">Cancelar</button>
+  </form>
+</div>
+
+  <!-- Detalhes da categoria selecionada -->
+  <div *ngIf="CategoriaDetalhada && !CategoriaEditando">
+    <h2>Detalhes da Categoria</h2>
+    <p>ID: {{ CategoriaDetalhada.id }}</p>
+    <p>Nome: {{ CategoriaDetalhada.nome }}</p>
+    <!-- Adicione outros detalhes específicos da categoria -->
+  </div>
+</div>

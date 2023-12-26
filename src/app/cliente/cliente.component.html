@@ -1,0 +1,86 @@
+<div>
+  <!-- Formulário para criar uma nova cliente -->
+  <button mat-button class="logoff-button "  (click)="onLogoff()">Logoff</button>
+  <h2>Criar Novo Cliente</h2>
+  <form (submit)="criarNovaCliente()">
+    <label>
+      Nome:
+      <input type="text" [(ngModel)]="novocliente.nome" name="nome" required>
+    </label>
+    <label>
+      Rua:
+      <input type="text" [(ngModel)]="novocliente.rua" name="rua" required>
+    </label>
+    <label>
+      Numero:
+      <input type="number" [(ngModel)]="novocliente.numero" name="numero" required>
+    </label>
+    <label>
+      Bairro:
+      <input type="text" [(ngModel)]="novocliente.bairro" name="bairro" required>
+    </label>
+    <label>
+      CEP:
+      <input type="text" [(ngModel)]="novocliente.cep" name="cep" required>
+    </label>
+
+    <button type="submit">Criar Cliente</button>
+  </form>
+
+  <hr>
+
+  <!-- Lista de clientes -->
+  <h2>Lista de Clientes</h2>
+  <ul>
+    <li *ngFor="let cliente of clientes">
+      {{ cliente.nome }}
+      <button (click)="detalharCliente(cliente.id)">Detalhar</button>
+      <button (click)="editarCliente(cliente)">Editar</button>
+      <button (click)="excluirCliente(cliente.id)">Excluir</button>
+      <!-- Adicione botões ou links para detalhar ou excluir clientes -->
+    </li>
+  </ul>
+  <!-- Formulário para editar uma cliente -->
+<div *ngIf="clienteDetalhado && clienteEditando">
+  <h2>Editar Cliente</h2>
+  <form (submit)="atualizarCliente()">
+    <input type="hidden" [(ngModel)]="clienteDetalhado.id" name="id">
+    <label>
+      Nome:
+      <input type="text" [(ngModel)]="clienteDetalhado.nome" name="nome" required>
+    </label>
+    <label>
+      Rua:
+      <input type="text" [(ngModel)]="clienteDetalhado.rua" name="rua" required>
+    </label>
+    <label>
+      Numero:
+      <input type="number" [(ngModel)]="clienteDetalhado.numero" name="numero" required>
+    </label>
+    <label>
+      Bairro:
+      <input type="text" [(ngModel)]="clienteDetalhado.bairro" name="bairro" required>
+    </label>
+    <label>
+      CEP:
+      <input type="text" [(ngModel)]="clienteDetalhado.cep" name="cep" required>
+    </label>
+    <!-- Adicione outros campos necessários para editar uma cliente -->
+
+    <button type="submit">Salvar Alterações</button>
+    <button (click)="cancelarEdicao()">Cancelar</button>
+  </form>
+</div>
+
+  <!-- Detalhes da cliente selecionada -->
+  <div *ngIf="clienteDetalhado && !clienteEditando">
+    <h2>Detalhes da Cliente</h2>
+    <p>ID: {{ clienteDetalhado.id }}</p>
+    <p>Nome: {{ clienteDetalhado.nome }}</p>
+    <p>Rua: {{ clienteDetalhado.rua }}</p>
+    <p>Numero: {{ clienteDetalhado.numero }}</p>
+    <p>Bairro: {{ clienteDetalhado.bairro }}</p>
+    <p>CEP: {{ clienteDetalhado.cep }}</p>
+    <!-- Adicione outros detalhes específicos da cliente -->
+  </div>
+</div>

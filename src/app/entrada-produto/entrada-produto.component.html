@@ -1,0 +1,46 @@
+<div>
+  <!-- Formulário para criar uma nova entradaprodutos -->
+  <button mat-button class="logoff-button "  (click)="onLogoff()">Logoff</button>
+  <h2>Criar Nova Entrada de Produto</h2>
+  <form (submit)="criarNovaEntradaProduto()">
+    <label for="dataHora">Data e Hora:</label>
+    <input type="datetime-local" id="dataHora" name="dataHora" [(ngModel)]="novaEntradaProduto.dataHora" required>
+    <label for="quantidade">Quantidade:</label>
+    <input type="number" id="quantidade" name="quantidade" [(ngModel)]="novaEntradaProduto.quantidade" required>
+    <label for="fornecedor">Fornecedor:</label>
+    <select id="fornecedor" name="fornecedor" [(ngModel)]="novaEntradaProduto.fornecedor" required>
+    </select>
+    <label for="produto">Produto:</label>
+    <select id="produto" name="produto" [(ngModel)]="novaEntradaProduto.produto" required>
+    </select>
+    <label for="preco">Preço:</label>
+    <input type="number" id="preco" name="preco" [(ngModel)]="novaEntradaProduto.preco" required>
+
+    <button type="submit">Criar Entrada</button>
+  </form>
+
+  <hr>
+
+  <!-- Lista de entradaprodutoss -->
+  <h2>Lista de Entradas de Produtos</h2>
+  <ul>
+    <li *ngFor="let entrada of entradasProduto">
+      {{ entrada.id }}
+      <button (click)="detalharFornecedor(entrada.id)">Detalhar</button>
+      <button (click)="excluirFornecedor(entrada.id)">Excluir</button>
+      <!-- Adicione botões ou links para detalhar ou excluir entradaprodutoss -->
+    </li>
+  </ul>
+
+  <!-- Detalhes da entradaprodutos selecionada -->
+  <div *ngIf=" entradaProdutoDetalhado">
+    <h2>Detalhes da Entrada de Produto</h2>
+    <p>ID: {{ entradaProdutoDetalhado.id }}</p>
+    <p>Data e Hora: {{ entradaProdutoDetalhado.dataHora }}</p>
+    <p>Quantidade: {{ entradaProdutoDetalhado.quantidade }}</p>
+    <p>Fornecedor: {{ entradaProdutoDetalhado.fornecedor }}</p>
+    <p>Produto: {{ entradaProdutoDetalhado.produto }}</p>
+    <p>Preço: {{ entradaProdutoDetalhado.preco }}</p>
+    <!-- Adicione outros detalhes específicos da entradaprodutos -->
+  </div>
+</div>
