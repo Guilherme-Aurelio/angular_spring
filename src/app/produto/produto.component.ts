@@ -93,4 +93,7 @@ export class ProdutoComponent implements OnInit{
     this.LoginService.logoff();
     this.router.navigate(['/login']);
   }
+  onHome(): void {
+    this.router.navigate(['/home']);
+  }
 }

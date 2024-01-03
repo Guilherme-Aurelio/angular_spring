@@ -15,10 +15,12 @@ export class FornecedorComponent {
   novofornecedor: Fornecedor = {
     id: 0,
     nome: '',
-    rua: '',
-    numero: 0,
-    bairro: '',
-    cep: ''
+    endereco: {
+      rua: '',
+      numero: 0,
+      bairro: '',
+      cep: ''
+    },
   };
   fornecedorDetalhado: Fornecedor | null = null;
   fornecedorEditando = false;
@@ -48,10 +50,12 @@ export class FornecedorComponent {
         this.novofornecedor = {
           id: 0,
           nome: '',
-          rua: '',
-          numero: 0,
-          bairro: '',
-          cep: ''
+          endereco: {
+            rua: '',
+            numero: 0,
+            bairro: '',
+            cep: ''
+          },
         };
         this.carregarFornecedores();
       },
@@ -68,10 +72,12 @@ export class FornecedorComponent {
           this.fornecedorDetalhado = {
             id: 0,
             nome: '',
-            rua: '',
-            numero: 0,
-            bairro: '',
-            cep: ''
+            endereco: {
+              rua: '',
+              numero: 0,
+              bairro: '',
+              cep: ''
+            },
           };
           this.carregarFornecedores();
         },
@@ -114,5 +120,8 @@ export class FornecedorComponent {
   onLogoff(): void {
     this.LoginService.logoff();
     this.router.navigate(['/login']);
+  }
+  onHome(): void {
+    this.router.navigate(['/home']);
   }
 }

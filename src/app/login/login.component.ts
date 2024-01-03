@@ -38,7 +38,7 @@ onLogin(): void {
       if (response && response.token) {
         localStorage.setItem('token', response.token);
         console.log('Token armazenado no localStorage:', response.token);
-        this.Router.navigate(['/categorias']);
+        this.Router.navigate(['/home']);
       } else {
         const token = response.json();
         if (!token) {

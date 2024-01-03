@@ -97,4 +97,7 @@ export class CategoriaComponent {
     this.LoginService.logoff();
     this.router.navigate(['/login']);
   }
+  onHome(): void {
+    this.router.navigate(['/home']);
+  }
 }

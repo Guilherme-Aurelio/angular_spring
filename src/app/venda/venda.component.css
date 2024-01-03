@@ -14,7 +14,15 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
+.home-button {
+  background-color: #40eb0c;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 .logoff-button:hover {
   background-color: #c82333;
 }

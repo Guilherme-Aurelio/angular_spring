@@ -99,4 +99,7 @@ export class FabricanteComponent {
     this.LoginService.logoff();
     this.router.navigate(['/login']);
   }
+  onHome(): void {
+    this.router.navigate(['/home']);
+  }
 }

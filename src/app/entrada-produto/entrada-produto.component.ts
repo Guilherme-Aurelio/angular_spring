@@ -85,4 +85,8 @@ export class EntradaProdutoComponent {
     this.LoginService.logoff();
     this.router.navigate(['/login']);
   }
+
+  onHome(): void {
+    this.router.navigate(['/home']);
+  }
 }

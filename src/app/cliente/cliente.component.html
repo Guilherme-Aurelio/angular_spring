@@ -1,5 +1,6 @@
 <div class="direction">
-  <button mat-button class="logoff-button "  (click)="onLogoff()">Logoff</button>
+  <button mat-button class="logoff-button "  (click)="onLogoff()">LOGOFF</button>
+  <button mat-button class="home-button "  (click)="onHome()">HOME</button>
 </div>
 <div class="form">
   <!-- Formulário para criar uma nova cliente -->
@@ -11,19 +12,19 @@
     </label>
     <label>
       Rua:
-      <input type="text" [(ngModel)]="novocliente.rua" name="rua" required>
+      <input type="text" [(ngModel)]="novocliente.endereco.rua" name="rua" required>
     </label>
     <label>
       Numero:
-      <input type="number" [(ngModel)]="novocliente.numero" name="numero" required>
+      <input type="number" [(ngModel)]="novocliente.endereco.numero" name="numero" required>
     </label>
     <label>
       Bairro:
-      <input type="text" [(ngModel)]="novocliente.bairro" name="bairro" required>
+      <input type="text" [(ngModel)]="novocliente.endereco.bairro" name="bairro" required>
     </label>
     <label>
       CEP:
-      <input type="text" [(ngModel)]="novocliente.cep" name="cep" required>
+      <input type="text" [(ngModel)]="novocliente.endereco.cep" name="cep" required>
     </label>
 
     <button type="submit">Criar Cliente</button>
@@ -53,19 +54,19 @@
     </label>
     <label>
       Rua:
-      <input type="text" [(ngModel)]="clienteDetalhado.rua" name="rua" required>
+      <input type="text" [(ngModel)]="clienteDetalhado.endereco.rua" name="rua" required>
     </label>
     <label>
       Numero:
-      <input type="number" [(ngModel)]="clienteDetalhado.numero" name="numero" required>
+      <input type="number" [(ngModel)]="clienteDetalhado.endereco.numero" name="numero" required>
     </label>
     <label>
       Bairro:
-      <input type="text" [(ngModel)]="clienteDetalhado.bairro" name="bairro" required>
+      <input type="text" [(ngModel)]="clienteDetalhado.endereco.bairro" name="bairro" required>
     </label>
     <label>
       CEP:
-      <input type="text" [(ngModel)]="clienteDetalhado.cep" name="cep" required>
+      <input type="text" [(ngModel)]="clienteDetalhado.endereco.cep" name="cep" required>
     </label>
     <!-- Adicione outros campos necessários para editar uma cliente -->
 
@@ -79,10 +80,10 @@
     <h2>Detalhes da Cliente</h2>
     <p>ID: {{ clienteDetalhado.id }}</p>
     <p>Nome: {{ clienteDetalhado.nome }}</p>
-    <p>Rua: {{ clienteDetalhado.rua }}</p>
-    <p>Numero: {{ clienteDetalhado.numero }}</p>
-    <p>Bairro: {{ clienteDetalhado.bairro }}</p>
-    <p>CEP: {{ clienteDetalhado.cep }}</p>
+    <p>Rua: {{ clienteDetalhado.endereco.rua }}</p>
+    <p>Numero: {{ clienteDetalhado.endereco.numero }}</p>
+    <p>Bairro: {{ clienteDetalhado.endereco.bairro }}</p>
+    <p>CEP: {{ clienteDetalhado.endereco.cep }}</p>
     <!-- Adicione outros detalhes específicos da cliente -->
   </div>
 </div>

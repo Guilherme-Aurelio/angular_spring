@@ -12,21 +12,21 @@ export class ClienteService {
 
   constructor(private http: HttpClient) { }
 
-  criarCliente(cliente: Cliente): Observable<any> {
-    return this.http.post(`${this.baseUrl}`, cliente);
+  criarCliente(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(this.baseUrl, cliente);
   }
 
   atualizarCliente(cliente: Cliente): Observable<any> {
     return this.http.put(`${this.baseUrl}`, cliente);
   }
 
-  listarClientes(): Observable<Cliente[]> {
-    return this.http.get<any>('http://localhost:8080/clientes').pipe(
+  listarClientes(): Observable<any[]> {
+    return this.http.get<any[]>(this.baseUrl).pipe(
       map((response: any) => response.content)
     );
   }
-  detalharCliente(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+  detalharCliente(id: number): Observable<Cliente> {
+    return this.http.get<Cliente>(`${this.baseUrl}/${id}`);
   }
 
   excluirCliente(id: number): Observable<any> {

@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { Usuario } from './modelo/Usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   private baseUrl = 'http://localhost:8080/login';
+  private url = 'http://localhost:8080/login/usuario'
   constructor(private http: HttpClient) { }
   // Método para verificar se o token está expirado
   private isTokenExpired(token: string): boolean {
@@ -19,6 +21,11 @@ export class LoginService {
     // Verificando se o token está expirado
     return tokenExpiration < currentTimestamp;
   }
+
+  criarUsuario(usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(this.url, usuario);
+  }
+
   login(login: string, senha: string): Observable<any> {
     return this.http.post<any>(this.baseUrl, { login, senha }).pipe(
       tap((response) => {

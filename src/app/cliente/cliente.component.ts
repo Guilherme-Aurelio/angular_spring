@@ -14,10 +14,12 @@ export class ClienteComponent {
   novocliente: Cliente = {
     id: 0,
     nome: '',
-    rua:'',
-    numero: 0,
-    bairro:'',
-    cep:'',
+    endereco: {
+      rua: '',
+      numero: 0,
+      bairro: '',
+      cep: ''
+    },
   };
   clienteDetalhado: Cliente | null = null;
   clienteEditando = false;
@@ -47,10 +49,12 @@ export class ClienteComponent {
         this.novocliente = {
           id: 0,
           nome: '',
-          rua:'',
-          numero: 0,
-          bairro:'',
-          cep:''
+          endereco: {
+            rua: '',
+            numero: 0,
+            bairro: '',
+            cep: ''
+          },
         };
         this.carregarClientes();
       },
@@ -64,7 +68,16 @@ export class ClienteComponent {
     if (this.clienteDetalhado) {
       this.clienteService.atualizarCliente(this.clienteDetalhado).subscribe(
         () => {
-          this.clienteDetalhado = { id: 0, nome: '', rua: '', numero: 0, bairro: '', cep: '' };
+          this.clienteDetalhado = { 
+            id: 0, 
+            nome: '', 
+            endereco: {
+              rua: '',
+              numero: 0,
+              bairro: '',
+              cep: ''
+            }, 
+          };
           this.carregarClientes();
         },
         (error: any) => {
@@ -106,5 +119,8 @@ export class ClienteComponent {
   onLogoff(): void {
     this.LoginService.logoff();
     this.router.navigate(['/login']);
+  }
+  onHome(): void {
+    this.router.navigate(['/home']);
   }
 }

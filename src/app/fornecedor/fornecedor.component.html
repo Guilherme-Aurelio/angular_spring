@@ -1,5 +1,6 @@
 <div class="direction">
-  <button mat-button class="logoff-button "  (click)="onLogoff()">Logoff</button>
+  <button mat-button class="logoff-button "  (click)="onLogoff()">LOGOFF</button>
+  <button mat-button class="home-button "  (click)="onHome()">HOME</button>
 </div>
 <div class="form">
   <!-- Formulário para criar uma nova fornecedor -->
@@ -11,19 +12,19 @@
     </label>
     <label>
       Rua:
-      <input type="text" [(ngModel)]="novofornecedor.rua" name="rua" required>
+      <input type="text" [(ngModel)]="novofornecedor.endereco.rua" name="rua" required>
     </label>
     <label>
       Numero:
-      <input type="text" [(ngModel)]="novofornecedor.numero" name="numero" required>
+      <input type="text" [(ngModel)]="novofornecedor.endereco.numero" name="numero" required>
     </label>
     <label>
       Bairro:
-      <input type="text" [(ngModel)]="novofornecedor.bairro" name="bairro" required>
+      <input type="text" [(ngModel)]="novofornecedor.endereco.bairro" name="bairro" required>
     </label>
     <label>
       CEP:
-      <input type="text" [(ngModel)]="novofornecedor.cep" name="cep" required>
+      <input type="text" [(ngModel)]="novofornecedor.endereco.cep" name="cep" required>
     </label>
     <!-- Adicione outros campos necessários para criar uma fornecedor -->
 
@@ -54,19 +55,19 @@
     </label>
     <label>
       Rua:
-      <input type="text" [(ngModel)]="fornecedorDetalhado.rua" name="rua" required>
+      <input type="text" [(ngModel)]="fornecedorDetalhado.endereco.rua" name="rua" required>
     </label>
     <label>
       Numero:
-      <input type="text" [(ngModel)]="fornecedorDetalhado.numero" name="numero" required>
+      <input type="text" [(ngModel)]="fornecedorDetalhado.endereco.numero" name="numero" required>
     </label>
     <label>
       Bairro:
-      <input type="text" [(ngModel)]="fornecedorDetalhado.bairro" name="bairro" required>
+      <input type="text" [(ngModel)]="fornecedorDetalhado.endereco.bairro" name="bairro" required>
     </label>
     <label>
       CEP:
-      <input type="text" [(ngModel)]="fornecedorDetalhado.cep" name="cep" required>
+      <input type="text" [(ngModel)]="fornecedorDetalhado.endereco.cep" name="cep" required>
     </label>
     <!-- Adicione outros campos necessários para editar uma fornecedor -->
 
@@ -80,10 +81,10 @@
     <h2>Detalhes do Fornecedor</h2>
     <p>ID: {{ fornecedorDetalhado.id }}</p>
     <p>Nome: {{ fornecedorDetalhado.nome }}</p>
-    <p>Rua: {{ fornecedorDetalhado.rua }}</p>
-    <p>Numero: {{ fornecedorDetalhado.numero }}</p>
-    <p>Bairro: {{ fornecedorDetalhado.bairro }}</p>
-    <p>CEP: {{ fornecedorDetalhado.cep }}</p>
+    <p>Rua: {{ fornecedorDetalhado.endereco.rua }}</p>
+    <p>Numero: {{ fornecedorDetalhado.endereco.numero }}</p>
+    <p>Bairro: {{ fornecedorDetalhado.endereco.bairro }}</p>
+    <p>CEP: {{ fornecedorDetalhado.endereco.cep }}</p>
     <!-- Adicione outros detalhes específicos da fornecedor -->
   </div>
 </div>
