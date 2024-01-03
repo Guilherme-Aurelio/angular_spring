@@ -2,9 +2,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <h1 style="display: flex; align-items: center;">
   <i class="material-icons" style="font-size: 20px; margin-right: 10px;">lock</i>
-  Login
+  Acesse sua conta
 </h1>
-    <form>
+    <form class="formulario">
          <div class="form-group">
             <label for="usuario">Login:</label>
             <input type="text" id="usuario" class="form-control" pInputText required [(ngModel)]="login" name="login">
@@ -18,7 +18,7 @@
         </div>
         </div>
         <div class="button" style="text-align:center">
-         <button class="btn" pButton type="button" label="Entrar" (click)="onLogin()"></button>
+         <button class="btn" pButton type="button" label="Entrar" (click)="onLogin()">Entrar</button>
         </div>
     </form>
   </div>

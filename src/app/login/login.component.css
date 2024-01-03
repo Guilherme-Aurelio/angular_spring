@@ -1,65 +1,75 @@
+
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 100px;
-}
-form {
-  width: 300px;
-}
-.form-group {
-  margin-bottom: 20px;
-}
-.form-control {
-  height: 40px;
-  width: 100%;
-  font-size: 16px;
-  padding: 10px;
-  box-sizing: border-box;
-}
-label {
-  font-size: 18px;
-  color: blue;
-}
- button[type="button"] {
-  padding: 10px 20px;
-  border-radius: 5px;
-/*     background-color: lightblue;
-  color: white; */
-  border: none;
-}
-p {
-  color: blue;
-  text-align:center
-}
-ui-card-shadow {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align:center
-}
-p-float-label {
-  font-size: 50px;
+  max-width: 400px;
+  margin: 100px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 40vh;
 }
 
-button.eye {
-  right: 740px;
-  top: 35%;
-  transform: translateY(-45%);
-  height: 40px;
-  width: 45px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-}
- h1 {
-  font-size: 36px;
-  color: blue;
-  margin-top: 54px;
+h1 {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
 }
 
-i.material-icons {
+.material-icons {
   font-size: 20px;
   margin-right: 10px;
 }
+
+.formulario {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.label {
+  color: #495057;
+  margin-bottom: 8px;
+  display: block;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.input-group {
+  display: flex;
+}
+
+.input-group-append {
+  margin-left: -1px;
+}
+
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+p {
+  color: #dc3545;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+

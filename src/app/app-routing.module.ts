@@ -9,6 +9,8 @@ import { ClienteComponent } from './cliente/cliente.component';
 import { VendaComponent } from './venda/venda.component';
 import { FornecedorComponent } from './fornecedor/fornecedor.component';
 import { EntradaProdutoComponent } from './entrada-produto/entrada-produto.component';
+import { HomeComponent } from './home/home.component';
+
 
 const routes: Routes = [
   { path: 'produtos', component: ProdutoComponent },
@@ -20,6 +22,7 @@ const routes: Routes = [
   { path: 'fornecedores', component: FornecedorComponent},
   { path: 'entradaprodutos', component: EntradaProdutoComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent}
 
 ];
 

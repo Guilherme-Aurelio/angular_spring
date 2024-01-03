@@ -1,4 +1,6 @@
-<button mat-button class="logoff-button "  (click)="onLogoff()">Logoff</button>
+<div class="direction">
+  <button mat-button class="logoff-button "  (click)="onLogoff()">Logoff</button>
+</div>
 <form (ngSubmit)="cadastrarVenda()">
   <label>Data e Hora da Venda:</label>
   <input type="datetime-local" [(ngModel)]="novaVenda.dataHora" name="dataHora" required><br>

@@ -15,6 +15,7 @@ import { ClienteComponent } from './cliente/cliente.component';
 import { VendaComponent } from './venda/venda.component';
 import { FornecedorComponent } from './fornecedor/fornecedor.component';
 import { EntradaProdutoComponent } from './entrada-produto/entrada-produto.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EntradaProdutoComponent } from './entrada-produto/entrada-produto.compo
     ClienteComponent,
     VendaComponent,
     FornecedorComponent,
-    EntradaProdutoComponent
+    EntradaProdutoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
